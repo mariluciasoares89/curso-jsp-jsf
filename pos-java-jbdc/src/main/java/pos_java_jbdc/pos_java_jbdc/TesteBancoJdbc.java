@@ -1,11 +1,11 @@
 package pos_java_jbdc.pos_java_jbdc;
 
-import java.sql.Statement;
 import java.util.List;
 
 import org.junit.Test;
 
 import dao.UserPosDAO;
+import model.BeanUserFone;
 import model.Telefone;
 import model.Userposjava;
 
@@ -83,8 +83,26 @@ public class TesteBancoJdbc {
 		Telefone telefone = new Telefone();
 		telefone.setNumero("(87) 4445-4545");
 		telefone.setTipo("Casa");
-		telefone.setUsuario(10L);
+		telefone.setUsuario(2L);
+		UserPosDAO dao = new UserPosDAO();
+		dao.salvarTelefone(telefone);
+		
 	}
+	@Test
+	public void testeCarregaFonesUser() { 
+		
+		UserPosDAO dao = new UserPosDAO();	
+		
+		List<BeanUserFone> beanUserFones = dao.listaUserFone(14L);
+		
+		for (BeanUserFone beanUserFone : beanUserFones) {
+			System.out.println(beanUserFone);
+			System.out.println("-----------------------------------------------------");
+			
+			
+		}
+	}
+	
 	/*
 	 * public void testConexaoBanco() { Connection connection =
 	 * SingleConnection.getConnection();
