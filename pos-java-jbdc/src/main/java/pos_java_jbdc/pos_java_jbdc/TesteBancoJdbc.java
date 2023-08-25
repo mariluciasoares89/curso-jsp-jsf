@@ -103,6 +103,12 @@ public class TesteBancoJdbc {
 		}
 	}
 	
+	@Test
+	public void testeDeleteUserFone() {
+		
+		UserPosDAO dao = new UserPosDAO();
+		dao.deleteFonesPorUser(12L);
+	}
 	/*
 	 * public void testConexaoBanco() { Connection connection =
 	 * SingleConnection.getConnection();
