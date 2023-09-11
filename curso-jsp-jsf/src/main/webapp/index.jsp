@@ -27,10 +27,12 @@ left: 33%;
 
 .msg{
 position: absolute;
-top: 70%;
+top: 10%;
 left: 33%;
 font-size: 15px;
-color: red;
+color: #664d03;
+  background-color: #fff3cd;
+  border-color: #ffecb5;
 }
 </style>
 </head>
@@ -46,7 +48,7 @@ color: red;
 
 
 
-  <div class="col-md-6">
+  <div class="mb-3">
 <label class="form-label" form ="Login">Login</label>
 <input class="form-control" id="login" name= "Login" type="text"required>
    <div class="invalid-feedback">
@@ -58,7 +60,7 @@ color: red;
     
   </div>
 
- <div class="col-md-6">
+ <div class="mb-3">
 <label class="form-label">Senha</label>
 
 <input class="form-control"name= "senha" type= "password"required>
