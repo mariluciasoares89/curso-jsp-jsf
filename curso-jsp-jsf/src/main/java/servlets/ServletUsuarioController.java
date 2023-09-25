@@ -15,25 +15,23 @@ import model.ModelLogin;
 
 @WebServlet("/ServletUsuarioController")
 public class ServletUsuarioController extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-     
-	private   DAOUsuarioRepository daoUsuarioRepository = new DAOUsuarioRepository();
-  
+	
+	
+	private DAOUsuarioRepository daoUsuarioRepository = new DAOUsuarioRepository();
+
     public ServletUsuarioController() {
-        
-    
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
 
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		try {
+		
 		String id = request.getParameter("id");
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
@@ -49,21 +47,20 @@ public class ServletUsuarioController extends HttpServlet {
 		modelLogin.setSenha(senha);
 		
 		
-		daoUsuarioRepository.gravarUsuario(modelLogin);
-		
-		request.setAttribute("msg", "Operação realizada com sucesso!;");
-		request.setAttribute("modelLogin", modelLogin);
-	    request.getRequestDispatcher("principal/usuario.jsp").forward(request, response);;
+		modelLogin = daoUsuarioRepository.gravarUsuario(modelLogin);
 		
 		
+		request.setAttribute("msg", "Operação realizada com sucesso!");
+		request.setAttribute("modolLogin", modelLogin);
+		request.getRequestDispatcher("principal/usuario.jsp").forward(request, response);
 		
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			RequestDispatcher redirecionar = request.getRequestDispatcher("/erro.jsp");
+			RequestDispatcher redirecionar = request.getRequestDispatcher("erro.jsp");
 			request.setAttribute("msg", e.getMessage());
 			redirecionar.forward(request, response);
-
 		}
+		
 	}
 
 }
