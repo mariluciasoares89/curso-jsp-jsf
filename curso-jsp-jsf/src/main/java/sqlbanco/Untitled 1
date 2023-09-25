@@ -10,23 +10,7 @@ CREATE DATABASE "curso-jsp"
     CONNECTION LIMIT = -1
     IS_TEMPLATE = False;
 
-CREATE TABLE IF NOT EXISTS public.model_login
-(
-    login character varying(200) COLLATE pg_catalog."default",
-    senha character varying(200) COLLATE pg_catalog."default",
-    CONSTRAINT login_unique UNIQUE (login)
-)
 
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.model_login
-    OWNER to postgres;
-    
-    INSERT INTO public.model_login(
-	login, senha)
-	VALUES ('admin', 'admin');
-	
-	
 CREATE TABLE IF NOT EXISTS public.model_login
 (
     login character varying(200) COLLATE pg_catalog."default" NOT NULL,
@@ -42,3 +26,14 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.model_login
     OWNER to postgres;
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.model_login
+    OWNER to postgres;
+    
+    INSERT INTO public.model_login(
+	login, senha)
+	VALUES ('admin', 'admin');
+	
+	
